@@ -100,9 +100,13 @@ def full?
 end
 
 
-  def draw?
+def draw?
+  if self.full? == true && self.won? == false
+    return true
+  else
+    return false
   end
-
+end
 
   def over?
   end
