@@ -50,8 +50,6 @@ class TicTacToe
     @board.each do |position|
       if position == "X" || position == "O"
         @turn_count += 1
-      else
-        @turn_count = @turn_count
       end
     end
     @turn_count
