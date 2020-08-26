@@ -80,13 +80,15 @@ class TicTacToe
       binding.pry
       if @board[combo[0]] == "X" && @board[combo[1]] == "X" && @board[combo[2]] == "X"
         return true
+        winning_combo = combo
       elsif @board[combo[0]] == "O" && @board[combo[1]] == "O" && @board[combo[2]] == "O"
         return true
+        winning_combo = combo
       else
         return false
       end
     end
-    return combo
+    return winning_combo
   end
 
   def full?
