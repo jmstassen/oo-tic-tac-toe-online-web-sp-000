@@ -52,6 +52,7 @@ class TicTacToe
       display_board
     else
       "Invalid - please enter your move"
+    end
   end
 
   def turn_count
