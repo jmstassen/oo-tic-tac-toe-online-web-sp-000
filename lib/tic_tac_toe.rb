@@ -75,68 +75,70 @@ class TicTacToe
     end
   end
 
-def won?
-  WIN_COMBINATIONS.each do |win_combination|
-    win_index_1 = win_combination[0]
-    win_index_2 = win_combination[1]
-    win_index_3 = win_combination[2]
+  def won?
+    WIN_COMBINATIONS.each do |win_combination|
+      win_index_1 = win_combination[0]
+      win_index_2 = win_combination[1]
+      win_index_3 = win_combination[2]
 
-    position_1 = @board[win_index_1]
-    position_2 = @board[win_index_2]
-    position_3 = @board[win_index_3]
+      position_1 = @board[win_index_1]
+      position_2 = @board[win_index_2]
+      position_3 = @board[win_index_3]
 
-    if position_1 == "X" && position_2 == "X" && position_3 == "X" || position_1 =="O" && position_2 == "O" && position_3 == "O"
-      return win_combination
-    else
+      if position_1 == "X" && position_2 == "X" && position_3 == "X" || position_1 =="O" && position_2 == "O" && position_3 == "O"
+        return win_combination
+      else
+      end
+    end
+    return false
+  end
+
+  def full?
+    @board.all? do |box|
+      box == "X" || box == "O"
     end
   end
-  return false
-end
 
-def full?
-  @board.all? do |box|
-    box == "X" || box == "O"
+
+  def draw?
+    if self.full? == true && self.won? == false
+      return true
+    else
+      return false
+    end
+  end
+
+  def over?
+    if self.won? != false || self.draw? == true || self.full? == true
+      return true
+    else
+      return false
+    end
+  end
+
+
+  def winner
+    if self.won? != false
+      win_combination = self.won?
+      return @board[win_combination[0]]
+    else
+      return nil
+    end
+  end
+
+
+  def play
+    until self.over? == true
+      self.turn
+    end
+
+    if self.winner == "X"
+      puts "Congratulations X!"
+    elsif self.winner == "O"
+      puts "Congratulations O!"
+    else
+      puts "Cat's Game!"
+    end
   end
 end
 
-
-def draw?
-  if self.full? == true && self.won? == false
-    return true
-  else
-    return false
-  end
-end
-
-def over?
-  if self.won? != false || self.draw? == true || self.full? == true
-    return true
-  else
-    return false
-  end
-end
-
-
-def winner
-  if self.won? != false
-    win_combination = self.won?
-    return @board[win_combination[0]]
-  else
-    return nil
-  end
-end
-
-
-def play
-  until self.over? == true
-    self.turn
-  end
-
-  if self.winner == "X"
-    puts "Congratulations X!"
-  elsif self.winner == "O"
-    puts "Congratulations O!"
-  else
-    puts "Cat's Game!"
-  end
-end
