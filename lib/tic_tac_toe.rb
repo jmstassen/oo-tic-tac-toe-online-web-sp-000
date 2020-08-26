@@ -49,13 +49,11 @@ class TicTacToe
     token = self.current_player
     index = input_to_index(user_input)
 
-    valid_move?(index) == true
-        self.move(index, token)
-        self.display_board
-      else
-        "Invalid - please enter your move"
-      end
-
+    if valid_move?(index) == true
+      self.move(index, token)
+      self.display_board
+    else
+      self.turn
     end
   end
 
