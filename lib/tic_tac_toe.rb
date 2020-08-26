@@ -93,8 +93,11 @@ def won?
   return false
 end
 
-  def full?
-  end
+def full?
+@board.all? do |box|
+  box == "X" || box == "O"
+end
+end
 
 
   def draw?
