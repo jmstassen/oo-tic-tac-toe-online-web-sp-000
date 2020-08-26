@@ -48,12 +48,9 @@ class TicTacToe
       user_input = gets.chomp
       token = self.current_player
       index = input_to_index(user_input)
-    break
-
+    end
     self.move(index, token)
     self.display_board
-  
-
   end
 
   def turn_count
