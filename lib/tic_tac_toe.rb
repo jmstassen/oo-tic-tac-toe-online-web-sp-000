@@ -94,9 +94,9 @@ def won?
 end
 
 def full?
-@board.all? do |box|
-  box == "X" || box == "O"
-end
+  @board.all? do |box|
+    box == "X" || box == "O"
+  end
 end
 
 
