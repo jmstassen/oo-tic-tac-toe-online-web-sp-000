@@ -108,8 +108,13 @@ def draw?
   end
 end
 
-  def over?
+def over?
+  if self.won? != false || self.draw? == true || self.full? == true
+    return true
+  else
+    return false
   end
+end
 
 
   def winner?
