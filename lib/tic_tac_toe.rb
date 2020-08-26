@@ -120,7 +120,7 @@ end
 def winner
   if self.won? != false
     win_combination = self.won?
-    return board[win_combination[0]]
+    return @board[win_combination[0]]
   else
     return nil
   end
